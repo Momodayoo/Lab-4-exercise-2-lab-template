@@ -31,7 +31,14 @@
       </div>
     </template>
 
-    <div id="card-list">
+      <div id="card-list">
+
+        <template id="artist-template"></template>
+        
+        <template id="art-template"></template>
+  
+        <div id="artist-list"></div>
+
             <script>
             function addCard() {
               // clone the template
@@ -47,19 +54,55 @@
               const data = [
               { name: "bob", age: 23 },
               { name: "alice", age: 39 },
+              { name: "mad hatter", age: 30},
             ];
-            
             }
-            addCard();
-            
+                for (let record in data) {
+                    let titleValue = `Employee: ${data[record].name}`;
+                    let textValue = `Name: ${data[record].name}\nAge: ${data[record].age}`;
+                    addCard(titleValue, textValue);
+                }            
 
-            const artist={
-            name:"Van Gogh",
-            portfolio:[
-            {title:"portrait",url:"https://collectionapi.metmuseum.org/api/collection/v1/iiif/436532/1671316/main-image"},
-            {title:"sky", url:"https://mymodernmet.com/wp/wp-content/uploads/2020/11/White-house-night-van-goh-worldwide-2.jpg" },
-        ]
-      }
+      //       const artist={
+      //       name:"Van Gogh",
+      //       portfolio:[
+      //       {title:"portrait",url:"https://collectionapi.metmuseum.org/api/collection/v1/iiif/436532/1671316/main-image"},
+      //       {title:"sky", url:"https://mymodernmet.com/wp/wp-content/uploads/2020/11/White-house-night-van-goh-worldwide-2.jpg" },
+      //   ]
+      // }
+
+        // function addArtist (artist) {
+        //   //clone template
+        //   const template = document
+        //   .getElementById("artist-template")
+        //   .content.cloneNode(true);
+        //   //populate the template
+        //   template.querySelector(".artist-name").innerText = artist.name;
+
+        //   //populate data for artist portfolio
+        //   for (let art in artist.portfolio){
+        //     const artTemplate = document 
+        //     .getElementById("art-template")
+        //     .content.cloneNode(true);
+
+        //     artTemplate.querySelector(".art-name").innerHTML = 
+        //     `<b>${artist.portfolio[art].title}</b>`;
+        //     artTemplate.querySelector(".art-url").innerHTML = 
+        //     `<img src=${artist.portfolio[art].url} width="300"/>`;
+        //     template.querySelector(".artist-portfolio").appendChild(artTemplate)
+        //   }
+
+        //   // include populated template into page
+
+        //   document.querySelector("#artist-list").appendChild(template);
+        // }
+
+        // let artists = [vanGogh, daVinci]
+        // for (let artist in artists){
+        //   addArtist(artists[artist]);
+        // }
+        addCard()
+
     </script>
     </div>
   </body>
